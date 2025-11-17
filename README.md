@@ -9,7 +9,7 @@ All cards from the decklist that interact with the Main Deck or GY have been res
 to work with a single Main Deck and GY.
 
 Add the ``hastyhorse.zip`` folder to your ``ProjectIgnis\expansions`` directory.
-Alternatively, manually add the files to the correct subdirectories,
+Alternatively, manually add the files in ``expansions``, ``pics`` and ``script`` to the correct subdirectories,
 as described in the [ProjectIgnis scrapi-book](https://projectignis.github.io/scrapi-book/getting-started/setup.html#where-to-place-the-files).
 
 You should then be able to play the format in LAN mode by using the decklist ``HastyHorse.ydk``,
