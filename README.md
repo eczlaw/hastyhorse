@@ -1,6 +1,6 @@
 # hastyhorse
-Scripts that implement MBT's [Hasty Horse](https://ygoprodeck.com/cube/view-cube/35397)
-Format to play it in EDOPro.
+Scripts that implement the alternative Yu-Gi-Oh! format [Hasty Horse](https://ygoprodeck.com/cube/view-cube/35397)
+by MBT to play it in EDOPro.
 
 The game rule card "Hasty Horse Rules" will remove itself from the Deck at the start of a duel
 and ask both players to accept the rules. It will also check whether the decklist is correct
