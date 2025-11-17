@@ -9,7 +9,9 @@ All cards from the decklist that interact with the Main Deck or GY have been res
 to work with a single Main Deck and GY.
 
 Add the ``hastyhorse.zip`` folder to your ``ProjectIgnis\expansions`` directory.
-You should then be able to play the format locally by using the decklist ``HastyHorse.ydk``.
+You should then be able to play the format in LAN mode by using the decklist ``HastyHorse.ydk``.
+You have to enable *Dont't check Deck contents* and *Dont't check Deck size*, as the decklist
+has more than 3 copies of some cards and contains more than 60 cards.
 Only one deck is needed, the other player's deck is irrelevant.
 
 
