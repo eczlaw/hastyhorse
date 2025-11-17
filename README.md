@@ -12,5 +12,7 @@ Add the ``hastyhorse`` folder to your ``ProjectIgnis\expansions`` directory.
 You should then be able to play the format locally by using the decklist ``HastyHorse.ydk``.
 Only one deck is needed, the other player's deck is irrelevant.
 
+
+The graphics used in this project are copyright 4K Media Inc, a subsidiary of Konami Digital Entertainment, Inc.
 Yu-Gi-Oh! is a trademark of Shueisha and Konami.
 This project is not affiliated with or endorsed by Shueisha or Konami.
