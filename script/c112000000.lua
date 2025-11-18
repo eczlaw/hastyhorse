@@ -18,29 +18,29 @@ function s.init(c)
     --check whether deck is correct
     local ag=Duel.GetFieldGroup(dp,LOCATION_HAND|LOCATION_DECK,0)
     local corr=(#ag==80
-        and ag:IsExists(Card.IsCode,3,nil,112000001) --Archfiend's Oath
-        and ag:IsExists(Card.IsCode,3,nil,88086137) --Broken Line
-        and ag:IsExists(Card.IsCode,3,nil,112000002) --Compulsory Evacuation Device
-        and ag:IsExists(Card.IsCode,3,nil,112000003) --Conscription
-        and ag:IsExists(Card.IsCode,3,nil,112000004) --Dark Bribe
-        and ag:IsExists(Card.IsCode,3,nil,47475363) --Drowning Mirror Force
-        and ag:IsExists(Card.IsCode,3,nil,60082869) --Dust Tornado
-        and ag:IsExists(Card.IsCode,3,nil,112000005) --Fruits of Kozaky's Studies
-        and ag:IsExists(Card.IsCode,3,nil,51091138) --Fuse Line
-        and ag:IsExists(Card.IsCode,3,nil,112000006) --Good Goblin Housekeeping
-        and ag:IsExists(Card.IsCode,3,nil,112000007) --Hand Destruction
-        and ag:IsExists(Card.IsCode,3,nil,112000008) --Jar of Greed
-        and ag:IsExists(Card.IsCode,3,nil,41440817) --Jelly Cannon
-        and ag:IsExists(Card.IsCode,3,nil,112000009) --Kingyo Sukui
-        and ag:IsExists(Card.IsCode,3,nil,15800838) --Mind Crush
-        and ag:IsExists(Card.IsCode,7,nil,63356631) --Phoenix Wing Wind Blast
-        and ag:IsExists(Card.IsCode,3,nil,112000010) --Pot of Duality
-        and ag:IsExists(Card.IsCode,10,nil,19636995) --Red-Hared Hasty Horse
-        and ag:IsExists(Card.IsCode,3,nil,112000011) --Spellbook Organization
-        and ag:IsExists(Card.IsCode,3,nil,98495314) --Sword of Deep-Seated
-        and ag:IsExists(Card.IsCode,3,nil,112000012) --Terrors of the Overroot
-        and ag:IsExists(Card.IsCode,3,nil,46652477) --The Transmigration Prophecy
-        and ag:IsExists(Card.IsCode,3,nil,35316708) --Time Seal
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000001) --Archfiend's Oath
+        and ag:IsExists(Card.IsOriginalCode,3,nil,88086137) --Broken Line
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000002) --Compulsory Evacuation Device
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000003) --Conscription
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000004) --Dark Bribe
+        and ag:IsExists(Card.IsOriginalCode,3,nil,47475363) --Drowning Mirror Force
+        and ag:IsExists(Card.IsOriginalCode,3,nil,60082869) --Dust Tornado
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000005) --Fruits of Kozaky's Studies
+        and ag:IsExists(Card.IsOriginalCode,3,nil,51091138) --Fuse Line
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000006) --Good Goblin Housekeeping
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000007) --Hand Destruction
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000008) --Jar of Greed
+        and ag:IsExists(Card.IsOriginalCode,3,nil,41440817) --Jelly Cannon
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000009) --Kingyo Sukui
+        and ag:IsExists(Card.IsOriginalCode,3,nil,15800838) --Mind Crush
+        and ag:IsExists(Card.IsOriginalCode,7,nil,63356631) --Phoenix Wing Wind Blast
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000010) --Pot of Duality
+        and ag:IsExists(Card.IsOriginalCode,10,nil,19636995) --Red-Hared Hasty Horse
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000011) --Spellbook Organization
+        and ag:IsExists(Card.IsOriginalCode,3,nil,98495314) --Sword of Deep-Seated
+        and ag:IsExists(Card.IsOriginalCode,3,nil,112000012) --Terrors of the Overroot
+        and ag:IsExists(Card.IsOriginalCode,3,nil,46652477) --The Transmigration Prophecy
+        and ag:IsExists(Card.IsOriginalCode,3,nil,35316708) --Time Seal
     )
     --if main deck is not correct, opponent wins
     if not corr then
