@@ -25,9 +25,7 @@ to the ``expansions``, ``expansions/pics`` and ``expansions/script`` subdirector
 respectively.
 This is outlined in the [ProjectIgnis scrapi-book](https://projectignis.github.io/scrapi-book/getting-started/setup.html#where-to-place-the-files).
 
-2. Add the ``hastyhorse.zip`` folder to your ``ProjectIgnis/expansions`` directory.
-
-3. Add this repository to your game's repositories. This will automatically update the cards in
+2. Add this repository to your game's repositories. This will automatically update the cards in
 your client if they are modified in the future, e.g. to fix bugs.
 To do this, add the following in the file ``ProjectIgnis/config/user_configs.json``
 (create it if it does not exist):
