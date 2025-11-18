@@ -62,8 +62,9 @@ function s.init(c)
 
     --shuffle opponent's hand into the deck and give them new hand
     local hg=Duel.GetFieldGroup(1-dp,LOCATION_HAND,0)
+    local sthc=hg:GetCount()
 	Duel.SendtoDeck(hg,nil,SEQ_DECKTOP,REASON_RULE)
-    local rdg=Duel.GetDecktopGroup(dp,5)
+    local rdg=Duel.GetDecktopGroup(dp,sthc)
     Duel.SendtoHand(rdg,1-dp,REASON_RULE)
     Duel.ShuffleHand(1-dp)
 
