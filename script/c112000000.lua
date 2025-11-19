@@ -42,23 +42,40 @@ function s.init(c)
         and ag:IsExists(Card.IsOriginalCode,3,nil,46652477) --The Transmigration Prophecy
         and ag:IsExists(Card.IsOriginalCode,3,nil,35316708) --Time Seal
     )
-    --if main deck is not correct, opponent wins
-    if not corr then
-        Duel.Hint(HINT_MESSAGE,0,aux.Stringid(id,0))
-        Duel.Hint(HINT_MESSAGE,1,aux.Stringid(id,0))
-        Duel.Win(1-dp,1)
+    
+    --if user's main deck is not correct and extra deck is not empty,
+    --opponent decides if they want to continue
+    if not corr or not Duel.GetFieldGroupCount(dp,LOCATION_EXTRA,0)>0 then
+        local cont=Duel.SelectYesNo(1-dp,aux.Stringid(id,3))
+        if not cont then
+            Duel.Win(1-dp,1)
+        end
     end
-    --if extra deck is not empty, other player wins
-    if Duel.GetFieldGroupCount(dp,LOCATION_EXTRA,0)>0 then
-        Duel.Hint(HINT_MESSAGE,dp,aux.Stringid(id,1))
-        Duel.Hint(HINT_MESSAGE,1-dp,aux.Stringid(id,2))
-        Duel.Win(1-dp,1)
+    --if opponent's extra deck is not empty, user decides if they want to continue
+    if not corr or not Duel.GetFieldGroupCount(1-dp,LOCATION_EXTRA,0)>0 then
+        local cont=Duel.SelectYesNo(dp,aux.Stringid(id,3))
+        if not cont then
+            Duel.Win(dp,1)
+        end
     end
-    if Duel.GetFieldGroupCount(1-dp,LOCATION_EXTRA,0)>0 then
-        Duel.Hint(HINT_MESSAGE,dp,aux.Stringid(id,2))
-        Duel.Hint(HINT_MESSAGE,1-dp,aux.Stringid(id,1))
-        Duel.Win(dp,1)
-    end
+
+    -- --if main deck is not correct, opponent wins
+    -- if not corr then
+    --     Duel.Hint(HINT_MESSAGE,0,aux.Stringid(id,0))
+    --     Duel.Hint(HINT_MESSAGE,1,aux.Stringid(id,0))
+    --     Duel.Win(1-dp,1)
+    -- end
+    -- --if extra deck is not empty, other player wins
+    -- if Duel.GetFieldGroupCount(dp,LOCATION_EXTRA,0)>0 then
+    --     Duel.Hint(HINT_MESSAGE,dp,aux.Stringid(id,1))
+    --     Duel.Hint(HINT_MESSAGE,1-dp,aux.Stringid(id,2))
+    --     Duel.Win(1-dp,1)
+    -- end
+    -- if Duel.GetFieldGroupCount(1-dp,LOCATION_EXTRA,0)>0 then
+    --     Duel.Hint(HINT_MESSAGE,dp,aux.Stringid(id,2))
+    --     Duel.Hint(HINT_MESSAGE,1-dp,aux.Stringid(id,1))
+    --     Duel.Win(dp,1)
+    -- end
 
     --shuffle opponent's hand into the deck and give them new hand
     local hg=Duel.GetFieldGroup(1-dp,LOCATION_HAND,0)
@@ -76,6 +93,15 @@ function s.init(c)
 	e3:SetCode(EVENT_PREDRAW)
 	e3:SetOperation(s.drawop)
 	Duel.RegisterEffect(e3,1-dp)
+
+    --prevent summoning from opponent's deck
+    local e1=Effect.CreateEffect(c)
+	e1:SetType(EFFECT_TYPE_FIELD)
+	e1:SetCode(EFFECT_CANNOT_SPECIAL_SUMMON)
+	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
+	e1:SetTargetRange(1,1)
+	e1:SetTarget(s.splimit)
+	Duel.RegisterEffect(e1,dp)
 
     --if opponent draws, shuffle it into the deck and add from other deck
     --does not work perfectly for draw cards
@@ -122,4 +148,7 @@ function s.reshuffop(e,tp,eg,ep,ev,re,r,rp)
     if ecount>dcount then Duel.Win(1-tp,2) end
 	local rdg=Duel.GetDecktopGroup(1-tp,ecount)
     Duel.SendtoHand(rdg,tp,r)
+end
+function s.splimit(e,c,sump,sumtype,sumpos,targetp)
+	return c:IsLocation(LOCATION_DECK) and c:IsControler(1-e:GetHandlerPlayer())
 end
