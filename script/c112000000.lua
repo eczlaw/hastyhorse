@@ -45,16 +45,18 @@ function s.init(c)
     
     --if user's main deck is not correct and extra deck is not empty,
     --opponent decides if they want to continue
-    if not corr or not Duel.GetFieldGroupCount(dp,LOCATION_EXTRA,0)>0 then
+    if not corr or Duel.GetFieldGroupCount(dp,LOCATION_EXTRA,0)>0 then
         local cont=Duel.SelectYesNo(1-dp,aux.Stringid(id,3))
         if not cont then
+            Debug.Message("player 1 has decided to end the Duel")
             Duel.Win(1-dp,1)
         end
     end
     --if opponent's extra deck is not empty, user decides if they want to continue
-    if not corr or not Duel.GetFieldGroupCount(1-dp,LOCATION_EXTRA,0)>0 then
+    if Duel.GetFieldGroupCount(1-dp,LOCATION_EXTRA,0)>0 then
         local cont=Duel.SelectYesNo(dp,aux.Stringid(id,3))
         if not cont then
+            Debug.Message("player 0 has decided to end the Duel")
             Duel.Win(dp,1)
         end
     end
