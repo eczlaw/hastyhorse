@@ -11,7 +11,8 @@ All cards from the decklist that interact with the Main Deck or GY have been res
 to work with a single Main Deck and GY.
 
 The decklist to play the format is provided as ``HastyHorse.ydk``.
-You have to enable *Dont't check Deck contents* and *Dont't check Deck size*, as the decklist
+In the Duel settings, you have to enable *Don't check Deck contents*
+and *Don't check Deck size*, as the decklist
 has more than 3 copies of some cards and contains more than 60 cards.
 Only one deck is needed. The other player's deck is irrelevant, but it has to
 contain cards that make up the starting hand.
